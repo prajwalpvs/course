@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>user register form</h1>
+    <form  #login ="ngForm" (ngSubmit)="submit(login)">
+        <div class="form-group">
+            <label for="firstname">firstname</label>
+            <input  #name="ngModel" required minlength="2" maxlength="7" type="text" name="firstname" class="form-control" ngModel>
+            <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+            <p *ngIf="name.errors.required">firstname required</p>
+            <p *ngIf="name.errors.minlength"> SHORT FIRSTNAME </p>
+            </div>
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label for="lastname">lastname</label><pre></pre>
+            <input type="text" name="lastname" class="form-control" ngModel>
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label for="email">email</label>
+            <input type="text" name="email" class="form-control" ngModel>
+        </div>
+        <pre></pre>
+        <div class="form-group">
+            <label for="password">password</label>
+            <input type="text" name="password" class="form-control" ngModel>
+        </div>
+        <pre></pre>
+        <button class="btn btn-success" type="submit">submit</button>
+    </form>
+</div>

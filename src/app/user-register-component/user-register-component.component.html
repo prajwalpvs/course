@@ -1,0 +1,22 @@
+<h1 style="text-align: right; color: darkorange">User Registration</h1>
+<br>
+
+<br><br>
+
+<div class="container" >
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <label style=" color: darkslategrey" for="username"><b>Username:</b></label>
+        <input type="text" name="username" id="" class="form-control" placeholder="username" formControlName="username">
+        <p style="color: red;" *ngIf="registerForm.get('username').hasError('required')&& !registerForm.get('username').untouched">Please Enter new Course**</p>
+<br><br>
+
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <label style=" color: darkslategrey" for="cs" ><b>Select course:</b></label>
+       
+<select class="form-select border-secondary" name="cs"   class="form-control" placeholder="coursename" formControlName="cs">
+        <option [value]=obj *ngFor="let obj of courses">{{obj.newcourse}}</option>
+</select>
+
+<br><br><br>
+
+<button class="btn btn-success" type="submit" >register</button>

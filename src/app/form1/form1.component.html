@@ -1,0 +1,49 @@
+<div class="container" style="background: lightblue;">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-9">
+        <form class="form" #registerForm="ngForm" (ngSubmit)="registerForm.form.valid&&onSubmit()">
+
+            <div class="form-group" style="color: purple;"><br><br>
+                <label>Name</label><br>
+                <input type="text" class="form-control" name="name"[(ngModel)]="userData.name" #name="ngModel" required>
+                <span class="text-danger" *ngIf="(name.touched||registerForm.submitted)&&name.errors?.required">*Name is required</span><br>
+            </div>
+            <div class="form-group">
+                <label class="text-primary fs-4">Password</label>
+                <input type="password" class="form-control border-primary" name="password"[(ngModel)]="userData.password" #password="ngModel"  pattern="(?=.*\d)(?=.*[A-Z]).{6,}" required>
+                <span class="text-danger" *ngIf="(password.touched||registerForm.submitted)&&password.errors?.required">*password is required</span>
+                <span class="text-danger" *ngIf="password.touched&&password.errors?.pattern">*Password should have minimum 6 characters, atleast 1 uppercase letter and 1 digit</span>
+            </div>
+        <div class="form-group" style="color: purple;">
+            <div class="form-check">
+                <input type="radio" name="gender" id="m" class="form-check-input" [(ngModel)]="userData.gender" #gender="ngModel"  value="male" required >
+                <label for="m" class="form-check-label">Male</label>
+                
+            </div>
+            <div class="form-check" style="color: purple;">
+                <input type="radio" name="gender" id="f" class="form-check-input" [(ngModel)]="userData.gender" #gender="ngModel" value="female">
+                <label for="f" class="form-check-label">Female</label>
+            </div>  
+            
+            <span class="text-danger" *ngIf="(gender.touched||registerForm.submitted)&&gender.errors?.required">*gender is required</span><br>
+
+        </div>
+         <div class="form-group" style="color: purple;">
+             <label>Designation</label>
+             <input type="text" class="form-control" name="designation"[(ngModel)]="userData.designation" #designation="ngModel" required>
+             <span class="text-danger" *ngIf="(designation.touched||registerForm.submitted)&&designation.errors?.required">*Designation is required</span><br>
+         </div>
+
+         <div class="form-group" style="color: purple;">
+            <label>About yourself</label>
+            <textarea type="text"class="form-control" name="about" [(ngModel)]="userData.about" #about="ngModel" required minlength="20" ></textarea>
+            <span class="text-danger" *ngIf="(about.touched||registerForm.submitted)&&about.errors?.required">About yourself is required</span>
+            <span class="text-danger" *ngIf="about.touched&&about.errors?.minlength">*it should contain atleast minimum 20chars</span><br>
+          </div>
+
+         <button type="submit"class="btn btn-primary mt-4">Submit</button>
+        </form>
+     
+    </div>
+    <div class="col-sm-1"></div>
+   </div>

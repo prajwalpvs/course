@@ -1,0 +1,22 @@
+<h1 style="text-align: right; color:darkturquoise">Admin Dashboard</h1>
+<br><br>
+<h3 style="text-align: center; color: black">Enter new Course </h3>
+<br>
+
+<div class="container">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <input type="text" name="newcourse" id="" class="form-control" placeholder="coursename" formControlName="newcourse">
+        <p style="color: red;" *ngIf="registerForm.get('newcourse').hasError('required')&& !registerForm.get('newcourse').untouched">Please Enter Course name**</p>
+
+<br>
+
+
+
+
+            
+
+
+<button class="btn btn-success" type="submit" [disabled]="registerForm.invalid">Add</button>
+
+    </form>
+</div>
